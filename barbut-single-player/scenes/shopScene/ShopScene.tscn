@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4p7ab6rqjrna"]
+
+[ext_resource type="Script" uid="uid://c3m60p0bu7kdt" path="res://scenes/shopScene/ShopScene.gd" id="1_jgi7y"]
+[ext_resource type="Texture2D" uid="uid://c8fyslytpvwnn" path="res://assets/buildings/shopRoom.png" id="2_jgi7y"]
+
+[node name="ShopScene" type="Node2D"]
+script = ExtResource("1_jgi7y")
+
+[node name="ShopRoom" type="Sprite2D" parent="."]
+position = Vector2(576, 323.75)
+scale = Vector2(0.75, 0.632324)
+texture = ExtResource("2_jgi7y")
+
+[node name="LeaveButton" type="Button" parent="."]
+offset_left = 981.0
+offset_top = 314.0
+offset_right = 1047.0
+offset_bottom = 345.0
+text = "To Map"

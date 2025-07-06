@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhxigtd1x13wa"]
+
+[ext_resource type="Texture2D" uid="uid://croa1ls0wy4wi" path="res://assets/gui/gui.png" id="1_3xcea"]
+[ext_resource type="Script" uid="uid://4wjdwvy7d2r4" path="res://components/gameConfig/topBar/TopBar.gd" id="1_73c3g"]
+[ext_resource type="FontFile" uid="uid://bin23umv2teyt" path="res://fonts/PressStart2P.ttf" id="3_y3g1m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ub5pc"]
+font = ExtResource("3_y3g1m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kblwh"]
+font = ExtResource("3_y3g1m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_omx86"]
+font = ExtResource("3_y3g1m")
+
+[node name="TopBar" type="Node2D"]
+script = ExtResource("1_73c3g")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 32)
+scale = Vector2(0.581818, 2)
+texture = ExtResource("1_3xcea")
+
+[node name="GameStateLabel" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 117.0
+offset_bottom = 47.0
+text = "$GAME_STATE"
+label_settings = SubResource("LabelSettings_ub5pc")
+
+[node name="EnemyGoldLabel" type="Label" parent="."]
+offset_left = 872.0
+offset_top = 24.0
+offset_right = 1144.0
+offset_bottom = 47.0
+text = "$ENEMY_GOLD_LABEL"
+label_settings = SubResource("LabelSettings_kblwh")
+
+[node name="EnemyNameLabel" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 24.0
+offset_right = 676.0
+offset_bottom = 47.0
+size_flags_vertical = 0
+text = "$ENEMY_NAME_LABEL"
+label_settings = SubResource("LabelSettings_omx86")

@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://br3vek0yvpimu"]
+
+[ext_resource type="Texture2D" uid="uid://boo0onm6vca3j" path="res://assets/gui/map.png" id="1_mynwb"]
+[ext_resource type="Texture2D" uid="uid://dq1umwuq7whvq" path="res://assets/buildings/home.png" id="2_5ya7l"]
+[ext_resource type="FontFile" uid="uid://bin23umv2teyt" path="res://fonts/PressStart2P.ttf" id="3_4gu8n"]
+[ext_resource type="Texture2D" uid="uid://4r1d7ubs0exj" path="res://assets/buildings/parc.png" id="3_7mjt0"]
+[ext_resource type="Texture2D" uid="uid://bey0gvp6btyiw" path="res://assets/buildings/block.png" id="4_4gu8n"]
+[ext_resource type="Script" uid="uid://b3hsvale3jd67" path="res://scenes/gameMap/GameMap.gd" id="5_4gu8n"]
+[ext_resource type="Texture2D" uid="uid://7qppk0rokyuv" path="res://assets/buildings/restaurant.png" id="5_iiyg5"]
+[ext_resource type="Texture2D" uid="uid://rp0l1a8tn22x" path="res://assets/buildings/shop.png" id="8_iiyg5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iiyg5"]
+font = ExtResource("3_4gu8n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mjt0"]
+font = ExtResource("3_4gu8n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4gu8n"]
+font = ExtResource("3_4gu8n")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h160"]
+font = ExtResource("3_4gu8n")
+
+[node name="GameMap" type="Node2D"]
+script = ExtResource("5_4gu8n")
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(574.5, 322.5)
+scale = Vector2(0.748047, 0.629883)
+texture = ExtResource("1_mynwb")
+
+[node name="HomeLocation" type="Node" parent="."]
+
+[node name="HomeLabel" type="Label" parent="HomeLocation"]
+offset_left = 37.0
+offset_top = 510.0
+offset_right = 101.0
+offset_bottom = 533.0
+text = "Home"
+label_settings = SubResource("LabelSettings_iiyg5")
+
+[node name="HomeSpriteButton" type="TextureButton" parent="HomeLocation"]
+offset_top = 510.0
+offset_right = 128.0
+offset_bottom = 638.0
+texture_normal = ExtResource("2_5ya7l")
+
+[node name="BlockLocation" type="Node" parent="."]
+
+[node name="BlockLabel" type="Label" parent="BlockLocation"]
+offset_left = 267.0
+offset_top = 348.0
+offset_right = 347.0
+offset_bottom = 371.0
+text = "Block"
+label_settings = SubResource("LabelSettings_7mjt0")
+
+[node name="BlockSpriteButton" type="TextureButton" parent="BlockLocation"]
+offset_left = 256.0
+offset_top = 348.0
+offset_right = 384.0
+offset_bottom = 476.0
+texture_normal = ExtResource("4_4gu8n")
+
+[node name="RestaurantLocation" type="Node" parent="."]
+
+[node name="Restaurant" type="Sprite2D" parent="RestaurantLocation"]
+position = Vector2(83.25, 167.25)
+scale = Vector2(0.996094, 0.871094)
+texture = ExtResource("5_iiyg5")
+
+[node name="RestaurantLabel" type="Label" parent="RestaurantLocation"]
+offset_left = 12.0
+offset_top = 112.0
+offset_right = 172.0
+offset_bottom = 132.0
+text = "Restaurant"
+label_settings = SubResource("LabelSettings_4gu8n")
+
+[node name="ParcLocation" type="Node" parent="."]
+
+[node name="ParcLabel" type="Label" parent="ParcLocation"]
+offset_left = 502.0
+offset_top = 468.0
+offset_right = 566.0
+offset_bottom = 503.0
+text = "Parc
+"
+label_settings = SubResource("LabelSettings_2h160")
+
+[node name="ParcSpriteButton" type="TextureButton" parent="ParcLocation"]
+offset_left = 474.0
+offset_top = 451.0
+offset_right = 602.0
+offset_bottom = 579.0
+texture_normal = ExtResource("3_7mjt0")
+
+[node name="ShopLocation" type="Node" parent="."]
+
+[node name="ShopSpriteButton" type="TextureButton" parent="ShopLocation"]
+offset_left = 522.0
+offset_top = 165.0
+offset_right = 650.0
+offset_bottom = 293.0
+texture_normal = ExtResource("8_iiyg5")

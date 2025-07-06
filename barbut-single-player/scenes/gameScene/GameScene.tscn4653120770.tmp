@@ -1,0 +1,212 @@
+[gd_scene load_steps=19 format=3 uid="uid://dflivhdntu4is"]
+
+[ext_resource type="Script" uid="uid://dcnheqacsifth" path="res://scenes/gameScene/GameScene.gd" id="1_lt3k6"]
+[ext_resource type="Texture2D" uid="uid://dupenvyh7rvcj" path="res://assets/background/gameScene.png" id="2_hqpne"]
+[ext_resource type="Texture2D" uid="uid://dwe0vy25mdyly" path="res://assets/player.png" id="3_y6mo2"]
+[ext_resource type="FontFile" uid="uid://bin23umv2teyt" path="res://fonts/PressStart2P.ttf" id="4_hqpne"]
+[ext_resource type="Texture2D" uid="uid://bhfs3jtk4117q" path="res://assets/gui/dices.png" id="5_y6mo2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqpne"]
+font = ExtResource("4_hqpne")
+font_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6mo2"]
+font = ExtResource("4_hqpne")
+font_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2vhme"]
+font = ExtResource("4_hqpne")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f025n"]
+font = ExtResource("4_hqpne")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uwdde"]
+font = ExtResource("4_hqpne")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0l4ed"]
+font = ExtResource("4_hqpne")
+font_size = 12
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vhme"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f025n"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwdde"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l4ed"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duws1"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd1u7"]
+atlas = ExtResource("5_y6mo2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqjyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vhme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f025n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwdde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l4ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duws1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd1u7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ProfileScene" type="Node2D"]
+script = ExtResource("1_lt3k6")
+
+[node name="GameScene" type="Sprite2D" parent="."]
+position = Vector2(577.5, 325.25)
+scale = Vector2(1.12402, 0.628418)
+texture = ExtResource("2_hqpne")
+
+[node name="ActionPanel" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 443.0
+offset_top = 559.0
+offset_right = 650.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="ActionPanel"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="List" type="HBoxContainer" parent="ActionPanel/Margin"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="ActionPanel/Margin/List"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hqpne")
+theme_override_font_sizes/font_size = 12
+text = "Start Game"
+
+[node name="RollDiceButton" type="Button" parent="ActionPanel/Margin/List"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hqpne")
+theme_override_font_sizes/font_size = 12
+text = "Roll Dice"
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(543, 286)
+scale = Vector2(0.571575, 0.51282)
+texture = ExtResource("3_y6mo2")
+
+[node name="Metadata" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 106.0
+offset_right = 109.0
+offset_bottom = 129.0
+text = "Metadata"
+
+[node name="EnemyRollTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartNewRoundTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EnemyCashLabel" type="Label" parent="."]
+offset_left = 891.0
+offset_top = 35.0
+offset_right = 1051.0
+offset_bottom = 58.0
+text = "Enemy info"
+label_settings = SubResource("LabelSettings_hqpne")
+
+[node name="PlayerCashLabel" type="Label" parent="."]
+offset_left = 891.0
+offset_top = 584.0
+offset_right = 1083.0
+offset_bottom = 607.0
+text = "Player info "
+label_settings = SubResource("LabelSettings_y6mo2")
+
+[node name="EnemyNameLabel" type="Label" parent="."]
+offset_left = 513.0
+offset_top = 166.0
+offset_right = 615.0
+offset_bottom = 196.0
+text = "Name"
+label_settings = SubResource("LabelSettings_2vhme")
+
+[node name="RoundResultLabel" type="Label" parent="."]
+offset_left = 493.0
+offset_top = 426.0
+offset_right = 583.0
+offset_bottom = 449.0
+text = "Result label"
+
+[node name="GameStateLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 68.0
+offset_right = 143.0
+offset_bottom = 91.0
+text = "$GAME_STATE"
+label_settings = SubResource("LabelSettings_f025n")
+
+[node name="BetLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 559.0
+offset_right = 74.0
+offset_bottom = 582.0
+text = "$BET"
+label_settings = SubResource("LabelSettings_uwdde")
+
+[node name="ActiveRoundLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 473.0
+offset_right = 210.0
+offset_bottom = 524.0
+text = "Current Round"
+label_settings = SubResource("LabelSettings_0l4ed")
+
+[node name="Dice1" type="AnimatedSprite2D" parent="."]
+position = Vector2(471, 400)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_jqjyr")
+
+[node name="Dice2" type="AnimatedSprite2D" parent="."]
+position = Vector2(630, 405)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_jqjyr")
+
+[connection signal="timeout" from="EnemyRollTimer" to="." method="_on_enemy_roll_timer_timeout"]
+[connection signal="timeout" from="StartNewRoundTimer" to="." method="_on_start_new_round_timer_timeout"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1qabh0lfjxrd"]
+
+[ext_resource type="Texture2D" uid="uid://croa1ls0wy4wi" path="res://assets/gui/gui.png" id="1_e25gd"]
+[ext_resource type="Script" uid="uid://bj28x3mlub1f1" path="res://components/gameConfig/bottomBar/BottomBar.gd" id="1_uhf54"]
+[ext_resource type="FontFile" uid="uid://bin23umv2teyt" path="res://fonts/PressStart2P.ttf" id="3_y64rp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxk4s"]
+font = ExtResource("3_y64rp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_huft0"]
+font = ExtResource("3_y64rp")
+
+[node name="BottomBar" type="Node2D"]
+script = ExtResource("1_uhf54")
+
+[node name="Gui" type="Sprite2D" parent="."]
+position = Vector2(576, 32)
+scale = Vector2(0.581818, 2)
+texture = ExtResource("1_e25gd")
+
+[node name="BetLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 47.0
+text = "$BET"
+label_settings = SubResource("LabelSettings_jxk4s")
+
+[node name="PlayerMoneyLabel" type="Label" parent="."]
+offset_left = 928.0
+offset_top = 24.0
+offset_right = 1136.0
+offset_bottom = 47.0
+text = "$PLAYER_MONEY"
+label_settings = SubResource("LabelSettings_huft0")
+
+[node name="StartGameButton" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 16.0
+offset_right = 568.0
+offset_bottom = 47.0
+text = "Start Game"
+
+[node name="RollDiceButton" type="Button" parent="."]
+offset_left = 584.0
+offset_top = 16.0
+offset_right = 659.0
+offset_bottom = 47.0
+text = "Roll Dice"
