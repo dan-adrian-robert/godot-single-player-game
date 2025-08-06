@@ -10,6 +10,7 @@ signal start_game_input_signal
 signal player_roll_input_signal
 signal enemy_roll_input_signal
 signal start_new_round_input_signal
+signal end_game_input_signal
 
 #global variable
 var game_config: GameConfig = GameConfig.new(
@@ -22,7 +23,6 @@ var current_game_scene_config = {
 	"enemy": "res://assets/persons/player.png"
 }
 
-
 func set_current_game_scene_config(config):
 	current_game_scene_config = config;
 	return;
@@ -32,10 +32,15 @@ func _ready():
 	player_roll_input_signal.connect(_on_player_roll_input_signal)
 	enemy_roll_input_signal.connect(_on_enemy_roll_input_signal)
 	start_new_round_input_signal.connect(_on_start_new_round_input_signal)
+	end_game_input_signal.connect(_on_end_game_input_signal)
 	
 	enemy_rolled_output_signal.connect(_on_enemy_rolled_output_signal)
 
 #Input handlers
+func _on_end_game_input_signal():
+	game_config.end_game();
+	emit_signal("game_state_changed_output_signal")
+
 func _on_start_game_input_signal():
 	print('handle game start')
 	game_config.start_game();

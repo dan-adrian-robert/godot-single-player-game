@@ -90,6 +90,7 @@ func _on_start_new_round_timer_timeout() -> void:
 	GameSlice.emit_signal('start_new_round_input_signal')
 
 func _on_leave_game_room():
+	GameSlice.emit_signal('end_game_input_signal')
 	get_tree().change_scene_to_file("res://scenes/gameMap/GameMap.tscn")
 
 func _on_roll_dice():

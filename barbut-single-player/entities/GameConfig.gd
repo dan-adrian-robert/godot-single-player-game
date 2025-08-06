@@ -98,6 +98,29 @@ func start_game() -> void:
 	state = Globals.GameState['PLAYER_1_TURN']
 	active_player_id = table_slots['PLAYER_1']
 
+func end_game():
+	state = Globals.GameState["IDLE"]
+	game_mode = Globals.GameMode["DEFAULT"];
+	active_player_id = '';
+
+	current_roll = {
+		"dice1": -1,
+		"dice2": -1
+	}
+	rounds = [];
+	winner = ""
+	current_rount = {
+		"PLAYER_1": {
+			"dice1": '',
+			"dice2": ''
+		},
+		"PLAYER_2": {
+			"dice1": '',
+			"dice2": ''
+		}
+	}
+	return;
+
 func rollDicePlayer() -> void:
 	var dice1 = randi() % 6 + 1
 	var dice2 = randi() % 6 + 1
@@ -126,15 +149,21 @@ func calculateResult() -> void:
 	if(game_mode == Globals.GameMode["DEFAULT"]):
 		var player1Score = current_rount["PLAYER_1"].dice1 + current_rount["PLAYER_1"].dice2
 		var player2Score = current_rount["PLAYER_2"].dice1 + current_rount["PLAYER_2"].dice2
+			
+		var player1Id = table_slots["PLAYER_1"];
+		var player2Id = table_slots["PLAYER_2"];
 		
 		if(player1Score > player2Score):
 			winner = "PLAYER_1"
 			print("emit signal win p1")
-			PlayerSlice.emit_signal('change_ballance_input_signal', {"PLAYER_1": 10, "PLAYER_2": -10})
+
+			PlayerSlice.emit_signal('change_ballance_input_signal', {"id": player1Id, "amount": 10})
+			PlayerSlice.emit_signal('change_ballance_input_signal', {"id": player2Id, "amount": -10})
 		else: if(player2Score > player1Score):
 			winner = "PLAYER_2"
 			print("emit signal win p2")
-			PlayerSlice.emit_signal('change_ballance_input_signal', {"PLAYER_1": -10, "PLAYER_2": 10})
+			PlayerSlice.emit_signal('change_ballance_input_signal', {"id": player1Id, "amount": -10})
+			PlayerSlice.emit_signal('change_ballance_input_signal', {"id": player2Id, "amount": 10})
 		else:
 			print("emit signal tie")
 			winner = null

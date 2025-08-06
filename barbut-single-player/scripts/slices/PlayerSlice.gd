@@ -11,6 +11,11 @@ var Player := {
 	"money": 200,
 }
 
+var EntityMap := {
+	Enemy["id"]: Enemy,
+	Player["id"]: Player
+}
+
 signal change_ballance_input_signal
 
 signal enemy_state_changed_outout_signal
@@ -20,9 +25,9 @@ func _ready():
 
 	print('enemy state change')
 	return;
+
 func _on_change_ballance_input_signal(payload):
-	Player.money += payload["PLAYER_1"]
-	Enemy.money += payload["PLAYER_2"]
+	EntityMap[payload.id].money += payload.amount;
 	emit_signal("enemy_state_changed_outout_signal")
 
 func get_enemy_money():
