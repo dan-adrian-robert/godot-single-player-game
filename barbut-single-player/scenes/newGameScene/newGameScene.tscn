@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=3 uid="uid://xhwslurvdjsq"]
+
+[ext_resource type="Texture2D" uid="uid://8jc23y7ufio6" path="res://assets/gui/box3.png" id="1_yjk86"]
+[ext_resource type="FontFile" uid="uid://bin23umv2teyt" path="res://fonts/PressStart2P.ttf" id="2_8knkq"]
+[ext_resource type="Texture2D" uid="uid://bhfs3jtk4117q" path="res://assets/gui/dices.png" id="3_1doph"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mfo8"]
+font = ExtResource("2_8knkq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkg5m"]
+font = ExtResource("2_8knkq")
+font_size = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vhme"]
+atlas = ExtResource("3_1doph")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f025n"]
+atlas = ExtResource("3_1doph")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwdde"]
+atlas = ExtResource("3_1doph")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l4ed"]
+atlas = ExtResource("3_1doph")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duws1"]
+atlas = ExtResource("3_1doph")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd1u7"]
+atlas = ExtResource("3_1doph")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gskre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vhme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f025n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwdde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l4ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duws1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd1u7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyl21"]
+font = ExtResource("2_8knkq")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxtsc"]
+font = ExtResource("2_8knkq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_elb6g"]
+font = ExtResource("2_8knkq")
+font_size = 24
+
+[node name="NewGameScene" type="Node2D"]
+
+[node name="PlayerBox" type="NinePatchRect" parent="."]
+offset_right = 393.0
+offset_bottom = 640.0
+texture = ExtResource("1_yjk86")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="PlayerNameLabel" type="Label" parent="PlayerBox"]
+offset_left = 32.0
+offset_top = 23.0
+offset_right = 72.0
+offset_bottom = 46.0
+text = "$NAME"
+label_settings = SubResource("LabelSettings_5mfo8")
+
+[node name="PlayerGoldLabel" type="Label" parent="PlayerBox"]
+offset_left = 244.0
+offset_top = 23.0
+offset_right = 364.0
+offset_bottom = 47.0
+text = "$GOLD"
+label_settings = SubResource("LabelSettings_rkg5m")
+
+[node name="ActionBox" type="NinePatchRect" parent="."]
+offset_left = 437.0
+offset_right = 679.0
+offset_bottom = 640.0
+texture = ExtResource("1_yjk86")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Dice1" type="AnimatedSprite2D" parent="ActionBox"]
+position = Vector2(72, 245)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gskre")
+
+[node name="Dice2" type="AnimatedSprite2D" parent="ActionBox"]
+position = Vector2(157, 245)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gskre")
+
+[node name="ResultLabel" type="Label" parent="ActionBox"]
+offset_left = 17.0
+offset_top = 293.0
+offset_right = 217.0
+offset_bottom = 353.0
+text = "#Result
+
+"
+label_settings = SubResource("LabelSettings_wyl21")
+horizontal_alignment = 1
+
+[node name="BetLabel" type="Label" parent="ActionBox"]
+offset_left = 17.0
+offset_top = 570.0
+offset_right = 217.0
+offset_bottom = 602.0
+text = "#BET
+"
+label_settings = SubResource("LabelSettings_wyl21")
+horizontal_alignment = 1
+
+[node name="GameStateLabel" type="Label" parent="ActionBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 47.0
+offset_right = 217.0
+offset_bottom = 79.0
+text = "#GAME STATE"
+label_settings = SubResource("LabelSettings_wyl21")
+
+[node name="EnemyBox" type="NinePatchRect" parent="."]
+offset_left = 734.0
+offset_right = 1146.0
+offset_bottom = 640.0
+texture = ExtResource("1_yjk86")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="EnemyGoldLabel" type="Label" parent="EnemyBox"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 23.0
+offset_right = 391.0
+offset_bottom = 47.0
+text = "$Gold"
+label_settings = SubResource("LabelSettings_gxtsc")
+
+[node name="EnemyNameLabel" type="Label" parent="EnemyBox"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 146.0
+offset_bottom = 57.0
+text = "#Name"
+label_settings = SubResource("LabelSettings_elb6g")
